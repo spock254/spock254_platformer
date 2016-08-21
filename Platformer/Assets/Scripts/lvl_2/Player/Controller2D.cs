@@ -134,7 +134,8 @@ public class Controller2D : MonoBehaviour {
 						continue;
 					}
 					if(playerInput == -1){
-						continue;
+                      //  playerInput = 1;
+                        continue;
 					}
 				}
 				velosity.y = (hit.distance - skinWight)*_diractionY;
@@ -173,7 +174,7 @@ public class Controller2D : MonoBehaviour {
 						continue;
 					}
 					if(playerInput == -1){
-						//playerInput = 1;
+					//	playerInput = 1;
 						continue;
 					}
 				}

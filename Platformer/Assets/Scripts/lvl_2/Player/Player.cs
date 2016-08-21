@@ -6,32 +6,25 @@ using System.Collections;
 public class Player : MonoBehaviour {
 
 	[Header("Player Controller")]
-	[Range(0.1f,10)]
     [HideInInspector]
 	public float maxJumpHeight = 4f;
-	[Range(0.1f,10)]
     [HideInInspector]
     public float minJumpHeight = 1f;
-	[Range(0.1f,2f)]
     [HideInInspector]
     public float timeToJumpApex = 0.4f;
-	[Range(1,12)]
     [HideInInspector]
     public float fastSpeed = 9;
-	[Range(1,12)]
     [HideInInspector]
     public float slowSpeed = 6;
-	[Range(0,10)]
     [HideInInspector]
     public float wallSlideSpeedMax;
-	[Range(0.01f,3f)]
+    [HideInInspector]
+    public float wallSlideSpeedAcceleration = 2;
     [HideInInspector]
     public float deltaX = 1f;
     [HideInInspector]
-    [Range(0,2)]
 	public float accleretationInAir = 0.2f;
     [HideInInspector]
-    [Range(0,2)]
 	public float accelerationOnGround = 0.1f;
 
 	float velosityXSmoothing;
@@ -54,8 +47,12 @@ public class Player : MonoBehaviour {
     public Vector2 wallJumpOff;
     [HideInInspector]
     public Vector2 wallLeap;
+    [HideInInspector]
+    public Vector2 SimpleWallJump;
+    [HideInInspector]
+    public Vector2 ShiftWallJump;
 
-	void Start () {
+    void Start () {
 		_controller2D = GetComponent<Controller2D>();
 
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex,2);
@@ -70,11 +67,16 @@ public class Player : MonoBehaviour {
 		}
 
 		bool _wallSlide = false;
-		if((_controller2D.collitions.right || _controller2D.collitions.left) && !_controller2D.collitions.below && velocity.y < 0){
+		if((_controller2D.collitions.right || _controller2D.collitions.left) && !_controller2D.collitions.below && velocity.y < 0)
+        {
 			_wallSlide = true;
-			if(velocity.y < -wallSlideSpeedMax){
-				velocity.y = -wallSlideSpeedMax;
-			}
+            if (velocity.y < -wallSlideSpeedMax)
+            {
+                velocity.y = -wallSlideSpeedMax;
+                if (Input.GetKey(KeyCode.S)) {
+                    velocity.y = -wallSlideSpeedMax * wallSlideSpeedAcceleration;
+                }
+            }
 		}
 		if(_controller2D.collitions.above || _controller2D.collitions.below){
 			velocity.y = 0;
@@ -82,18 +84,36 @@ public class Player : MonoBehaviour {
 
 
 		if(Input.GetKeyDown(KeyCode.Space)){
-			if(_wallSlide){
-				if(wallDir == _input.x){
-					velocity.x = -wallDir * wallJumpClimb.x;  // +currentSpeed; -->y
-					velocity.y = wallJumpClimb.y+currentSpeed*deltaX;
-				}else if(_input.x == 0){
-					velocity.x = -wallDir * wallJumpOff.x;
-					velocity.y = wallJumpOff.y+currentSpeed*deltaX;
-				}else{
-					velocity.x = -wallDir * wallLeap.x;
-					velocity.y = wallLeap.y+currentSpeed*deltaX;
-				}
-			}
+            if (_wallSlide)
+            {
+                if (wallDir == _input.x)
+                {
+                    velocity.x = -wallDir * wallJumpClimb.x;  // +currentSpeed; -->y
+                    velocity.y = wallJumpClimb.y + currentSpeed * deltaX;
+                }
+                else if (_input.x == 0)
+                {
+                    velocity.x = -wallDir * wallJumpOff.x;
+                    velocity.y = wallJumpOff.y + currentSpeed * deltaX;
+                } else if (wallDir != _input.x && Input.GetKey(KeyCode.LeftShift))
+                {
+                    Debug.Log("wall_shift");
+                    velocity.x = -wallDir * fastSpeed * ShiftWallJump.x;
+                    velocity.y = maxJumpHeight * ShiftWallJump.y;
+                }
+                else if (wallDir != _input.x)
+                {
+                    Debug.Log("wall_");
+                    velocity.x = -wallDir * slowSpeed * SimpleWallJump.x;
+                    velocity.y = minJumpHeight * SimpleWallJump.y;
+                }
+                else
+                {
+                    velocity.x = -wallDir * wallLeap.x;
+                    velocity.y = wallLeap.y + currentSpeed * deltaX;
+                }
+            }
+
 			if(_controller2D.collitions.below){
 				velocity.y = maxJumpVelocity+currentSpeed*deltaX;
 			}

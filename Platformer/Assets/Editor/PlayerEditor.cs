@@ -5,6 +5,8 @@ using UnityEditor;
 [CustomEditor(typeof(Player))]
 public class PlayerEditor : Editor {
 
+    private GameObject go;
+
     SerializedProperty maxJumpHeight;
     // Use this for initialization
     void OnEnable() {
@@ -27,6 +29,7 @@ public class PlayerEditor : Editor {
         EditorGUILayout.Space();
         player.timeToJumpApex = EditorGUILayout.Slider("Time to apex", player.timeToJumpApex, 0.1f, 2);
         player.wallSlideSpeedMax = EditorGUILayout.Slider("Wall Slide Speed", player.wallSlideSpeedMax, 0, 10);
+        player.wallSlideSpeedAcceleration = EditorGUILayout.Slider("Wall Slide Speed Acceleration", player.wallSlideSpeedAcceleration, 0, 20);
         player.deltaX = EditorGUILayout.Slider("Delta X", player.deltaX, 0.01f, 3);
         EditorGUILayout.Space();
         player.accleretationInAir = EditorGUILayout.Slider("Axeleration in AIR", player.accleretationInAir, 0, 2);
@@ -42,5 +45,21 @@ public class PlayerEditor : Editor {
         EditorGUILayout.Space();
         player.wallLeap.x = EditorGUILayout.Slider("Wall Learp 'X'", player.wallLeap.x, 0, 20);
         player.wallLeap.y = EditorGUILayout.Slider("Wall Learp 'Y'", player.wallLeap.y, 0, 20);
+        EditorGUILayout.Space();
+        player.SimpleWallJump.x = EditorGUILayout.Slider("Simple Wall Jump 'X'", player.SimpleWallJump.x, 0, 20);
+        player.SimpleWallJump.y = EditorGUILayout.Slider("Simple Wall Jump 'Y'", player.SimpleWallJump.y, 0, 20);
+        player.ShiftWallJump.x = EditorGUILayout.Slider("Shift Wall Jump 'X'", player.ShiftWallJump.x, 0, 20);
+        player.ShiftWallJump.y = EditorGUILayout.Slider("Shift Wall Jump 'Y'", player.ShiftWallJump.y, 0, 20);
+        EditorGUILayout.Space();
+        if (GUILayout.Button("Build Prefab"))
+        {
+            OverridePrefab();
+        }
+
+    }
+    private void OverridePrefab() {
+        GameObject pref = Resources.Load("Prefabs/Player 1") as GameObject;
+        if (pref)
+            PrefabUtility.ReplacePrefab(GameObject.FindGameObjectWithTag("Player"), pref);
     }
 }

@@ -1,44 +1,44 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &137840
+--- !u!1 &131344
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 4
   m_Component:
-  - 4: {fileID: 484564}
-  - 33: {fileID: 3388742}
-  - 23: {fileID: 2387888}
-  - 61: {fileID: 6147742}
-  - 114: {fileID: 11463174}
-  - 114: {fileID: 11407026}
+  - 4: {fileID: 489666}
+  - 33: {fileID: 3309920}
+  - 23: {fileID: 2375688}
+  - 61: {fileID: 6199040}
+  - 114: {fileID: 11422474}
+  - 114: {fileID: 11409634}
   m_Layer: 9
-  m_Name: Player
+  m_Name: Player 1
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &484564
+--- !u!4 &489666
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137840}
+  m_GameObject: {fileID: 131344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -58, y: -3.1, z: 0}
+  m_LocalPosition: {x: -56.648605, y: -4.877363, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!23 &2387888
+--- !u!23 &2375688
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137840}
+  m_GameObject: {fileID: 131344}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -59,19 +59,19 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
---- !u!33 &3388742
+--- !u!33 &3309920
 MeshFilter:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137840}
+  m_GameObject: {fileID: 131344}
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!61 &6147742
+--- !u!61 &6199040
 BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137840}
+  m_GameObject: {fileID: 131344}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -80,12 +80,12 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
---- !u!114 &11407026
+--- !u!114 &11409634
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137840}
+  m_GameObject: {fileID: 131344}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8d0fdb4ba7633664d92f9b92df3460eb, type: 3}
@@ -97,20 +97,23 @@ MonoBehaviour:
   fastSpeed: 7.1
   slowSpeed: 4.6
   wallSlideSpeedMax: 0.9
+  wallSlideSpeedAcceleration: 5
   deltaX: 1
   accleretationInAir: 0.2
   accelerationOnGround: 0.1
-  velocity: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: -0.9003537, z: 0}
   _input: {x: 0, y: 0}
   wallJumpClimb: {x: 3.6, y: 13.5}
   wallJumpOff: {x: 8.5, y: 3.2}
   wallLeap: {x: 8.6, y: 13.1}
---- !u!114 &11463174
+  SimpleWallJump: {x: 2, y: 10}
+  ShiftWallJump: {x: 1, y: 4}
+--- !u!114 &11422474
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 137840}
+  m_GameObject: {fileID: 131344}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1fc361798c98d864fa5a69c4faba8a30, type: 3}
@@ -121,11 +124,11 @@ MonoBehaviour:
     m_Bits: 256
   horizontalRayCount: 4
   verticalRayCount: 4
-  _horizontalRaySpacing: 0
-  _verticalRatSpacing: 0
-  playerInput: 0
-  _rayOriginHorizontal: {x: 0, y: 0}
-  _diractionX: 0
+  _horizontalRaySpacing: 0.23333333
+  _verticalRatSpacing: 0.23333333
+  playerInput: 1
+  _rayOriginHorizontal: {x: -56.29861, y: -4.5273633}
+  _diractionX: 1
   attackValue: 0
 --- !u!1001 &100100000
 Prefab:
@@ -136,5 +139,5 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 137840}
+  m_RootGameObject: {fileID: 131344}
   m_IsPrefabParent: 1
