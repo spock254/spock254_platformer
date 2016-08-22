@@ -14,7 +14,8 @@ public class NextScene : MonoBehaviour {
     void Update() {
         distance = Vector3.Distance(playerTransform.position, this.transform.position);
         if (distance < 1.5) {
-            sceneController.ChangeScene(1);
+            Debug.Log("In");
+            sceneController.LoadLvl(SceneController.GamePosition.LVL);
         }
     }
 

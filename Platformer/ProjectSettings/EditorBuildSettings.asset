@@ -9,3 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/lvl_1_1.unity
   - enabled: 1
     path: Assets/Scenes/lvl_1_2.unity
+  - enabled: 1
+    path: Assets/Scenes/dieMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/mainMenu.unity
+  - enabled: 1
+    path: Assets/Scenes/endGame.unity
