@@ -8,6 +8,8 @@ TagManager:
   - ThrowJump
   - Fall
   - notClimb
+  - PlayerManager
+  - EndOfScene
   layers:
   - Default
   - TransparentFX
