@@ -7,10 +7,10 @@ public class PlayerEditor : Editor {
 
     private GameObject go;
 
-    SerializedProperty maxJumpHeight;
+  //  SerializedProperty maxJumpHeight;
     // Use this for initialization
     void OnEnable() {
-        maxJumpHeight = serializedObject.FindProperty("maxJumpHeight");
+        //maxJumpHeight = serializedObject.FindProperty("maxJumpHeight");
 
     }
     

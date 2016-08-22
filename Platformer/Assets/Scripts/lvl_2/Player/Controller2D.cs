@@ -30,8 +30,12 @@ public class Controller2D : MonoBehaviour {
 	public float _diractionX;
 	[HideInInspector]
 	public bool attackValue;
+    [HideInInspector]
+    public bool alowWallJump;
 
-	void Start () {
+
+
+    void Start () {
 		collitions.faceDir = 1;
 		_colloder = GetComponent<BoxCollider2D>();
 		CalculateRaySpacing();
@@ -69,8 +73,12 @@ public class Controller2D : MonoBehaviour {
 			Debug.DrawRay(_rayOriginHorizontal,Vector2.right*_diractionX*_rayLangth,Color.yellow);
 
 			if(hit){
+                if (hit.collider.tag == "notClimb")
+                    alowWallJump = false;
+                else
+                    alowWallJump = true;
 
-				float _slopeAngle = Vector2.Angle(hit.normal,Vector2.up);
+                float _slopeAngle = Vector2.Angle(hit.normal,Vector2.up);
 				if(_slopeAngle >89){ // ?
 				//	Debug.Log("wall");
 					collitions.nearWall = true;
@@ -123,12 +131,12 @@ public class Controller2D : MonoBehaviour {
 			//_rayOrigin += Vector2.right * (_verticalRatSpacing * i * velosity.x);
 			_rayOrigin += Vector2.left * (_verticalRatSpacing * i * velosity.x);
 
-			RaycastHit2D hit = Physics2D.Raycast(_rayOrigin,Vector2.up*_diractionY,_rayLangth,_collitionMask);
+            RaycastHit2D hit = Physics2D.Raycast(_rayOrigin,Vector2.up*_diractionY,_rayLangth,_collitionMask);
 
 			Debug.DrawRay(_rayOrigin,Vector2.up*_diractionY*_rayLangth,Color.yellow);
 
-			if(hit && hit.distance != 0){ //&& hit.distance != 0
-				
+
+            if (hit && hit.distance != 0){ //&& hit.distance != 0
 				if(hit.collider.tag == "ThrowJump"){
 					if(_diractionY == 1 || hit.distance == 0){
 						continue;
@@ -148,7 +156,7 @@ public class Controller2D : MonoBehaviour {
 				collitions.below = _diractionY == -1;
 				collitions.above = _diractionY == 1;
 			}
-			playerInput = 1;
+            playerInput = 1;
 		}
 	}
 

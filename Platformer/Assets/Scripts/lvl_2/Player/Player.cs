@@ -55,7 +55,7 @@ public class Player : MonoBehaviour {
     void Start () {
 		_controller2D = GetComponent<Controller2D>();
 
-		gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex,2);
+		gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex,2)*2;
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
 	}
@@ -67,7 +67,7 @@ public class Player : MonoBehaviour {
 		}
 
 		bool _wallSlide = false;
-		if((_controller2D.collitions.right || _controller2D.collitions.left) && !_controller2D.collitions.below && velocity.y < 0)
+		if((_controller2D.collitions.right || _controller2D.collitions.left) && !_controller2D.collitions.below && velocity.y < 0 && _controller2D.alowWallJump)
         {
 			_wallSlide = true;
             if (velocity.y < -wallSlideSpeedMax)

@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 131344}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -56.648605, y: -4.877363, z: 0}
+  m_LocalPosition: {x: -58, y: -3.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
@@ -91,11 +91,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d0fdb4ba7633664d92f9b92df3460eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxJumpHeight: 3.7
-  minJumpHeight: 0.4
-  timeToJumpApex: 0.4
-  fastSpeed: 7.1
-  slowSpeed: 4.6
+  maxJumpHeight: 1
+  minJumpHeight: 0.2
+  timeToJumpApex: 0.3
+  fastSpeed: 7
+  slowSpeed: 4.5
   wallSlideSpeedMax: 0.9
   wallSlideSpeedAcceleration: 5
   deltaX: 1
@@ -106,8 +106,8 @@ MonoBehaviour:
   wallJumpClimb: {x: 3.6, y: 13.5}
   wallJumpOff: {x: 8.5, y: 3.2}
   wallLeap: {x: 8.6, y: 13.1}
-  SimpleWallJump: {x: 2, y: 10}
-  ShiftWallJump: {x: 1, y: 4}
+  SimpleWallJump: {x: 2, y: 15}
+  ShiftWallJump: {x: 1, y: 15}
 --- !u!114 &11422474
 MonoBehaviour:
   m_ObjectHideFlags: 1
