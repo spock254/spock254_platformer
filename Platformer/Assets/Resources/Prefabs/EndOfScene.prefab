@@ -8,7 +8,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 474098}
-  - 114: {fileID: 11477682}
+  - 114: {fileID: 11478438}
   m_Layer: 8
   m_Name: EndOfScene
   m_TagString: EndOfScene
@@ -29,7 +29,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11477682
+--- !u!114 &11478438
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -37,7 +37,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 130420}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe85033709aaa44b8e337176ae19b25, type: 3}
+  m_Script: {fileID: 11500000, guid: fd0e3dfd2d7a6e34cad5fc1d9265bd5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &100100000
