@@ -9,6 +9,7 @@ public class StartDialog : MonoBehaviour, IChangeLvLBehavior {
     private Transform targetTransform;
     private CameraZoom camZoom;
     private float distance = 0f;
+    private DialogSyst dialogSys; // ????
 
     void Awake()
     {
@@ -16,6 +17,7 @@ public class StartDialog : MonoBehaviour, IChangeLvLBehavior {
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         sceneController = SceneController.GetSceneController;
         camZoom = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraZoom>();
+        dialogSys = GameObject.FindGameObjectWithTag("DialogHiro").GetComponent<DialogSyst>(); // ???
     }
     private StartDialog() { }
     private static StartDialog startDialog;
@@ -38,6 +40,7 @@ public class StartDialog : MonoBehaviour, IChangeLvLBehavior {
         if (distance < 1.5)
         {
             camZoom.ZoomIn();
+            //dialogSys.ShowDialog(); // ???
         }
         else if (distance > 1.5) {
             camZoom.ZoomOut();

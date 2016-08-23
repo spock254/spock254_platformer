@@ -14,6 +14,10 @@ public class CameraController : MonoBehaviour {
 	//[Range(0.1f,2)]
 	public float smoothTimeY;
 
+    void Start() {
+        target = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
 	void Update () {
 		float _x = Mathf.SmoothDamp(transform.position.x,target.transform.position.x,ref velocityX,smoothTimeX);
 		float _y = Mathf.SmoothDamp(transform.position.y,target.transform.position.y,ref velocityY,smoothTimeY);
