@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour {
 
+    public static bool FINAL_LVL = false;
     public enum GamePosition { MAIN_MENU, LVL, WIN_MENU, DIE_MENU,END_GAME };
     private const int MAX_LVL_COUNT = 2;
 
@@ -36,10 +37,15 @@ public class SceneController : MonoBehaviour {
                     ChangeScene("mainMenu");
                 }break;
             case GamePosition.LVL:{
-                    if (SceneManager.GetActiveScene().buildIndex < MAX_LVL_COUNT - 1) {
+                    if (SceneManager.GetActiveScene().buildIndex < MAX_LVL_COUNT - 1)
+                    {
+                        FINAL_LVL = false;
                         ChangeScene(SceneManager.GetActiveScene().buildIndex + 1);
                     }
-                    else SceneManager.LoadScene("endGame");
+                    else {
+                        FINAL_LVL = true;
+                        SceneManager.LoadScene("endGame");
+                    }
                 }
                 break;
             case GamePosition.DIE_MENU: {

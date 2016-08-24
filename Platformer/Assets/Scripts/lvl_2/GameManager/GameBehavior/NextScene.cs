@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-public class NextScene : MonoBehaviour ,IChangeLvLBehavior {
+public class NextScene : MonoBehaviour {
 
       private SceneController sceneController;
       private Transform playerTransform;
@@ -38,14 +38,14 @@ public class NextScene : MonoBehaviour ,IChangeLvLBehavior {
             return nextScene;
         }
     }
-    public void ChangeLvLBehavior()
+    void Update()
     {
         distance = Vector3.Distance(playerTransform.position, targetTransform.transform.position);
         Debug.DrawLine(playerTransform.position, targetTransform.transform.position, Color.green);
         if (distance < 1.5)
         {
-            Debug.Log("In");
-            sceneController.LoadLvl(SceneController.GamePosition.LVL);
+            InputAggregator.CallOnChangeLvL(SceneController.GamePosition.LVL);
         }
     }
+    
 }

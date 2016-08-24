@@ -13,26 +13,30 @@ public class CameraZoom : MonoBehaviour {
     [HideInInspector]
     public float smooth = 5;
 
-    public static CameraZoom GetCameraZoom{
-        get {
-            if (camZoom == null) {
+    public static CameraZoom GetCameraZoom
+    {
+        get
+        {
+            if (camZoom == null)
+            {
                 camZoom = GameObject.FindGameObjectWithTag("PlayerManager").GetComponent<CameraZoom>();
                 return camZoom;
             }
             return camZoom;
         }
-        
+
     }
 
-	void Awake () {
-        cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-        Debug.Log(cam.orthographicSize);
-	}
 
     public void ZoomIn() {
+        if(cam == null)
+            cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, zoom, Time.deltaTime * smooth);
     }
     public void ZoomOut() {
+        if(cam == null)
+            cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         cam.orthographicSize = Mathf.Lerp(cam.orthographicSize, normal_zoom, Time.deltaTime * smooth);
     }
+    
 }

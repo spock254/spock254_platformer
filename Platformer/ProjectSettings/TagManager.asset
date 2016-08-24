@@ -11,6 +11,9 @@ TagManager:
   - PlayerManager
   - EndOfScene
   - DialogHiro
+  - NPCScreen
+  - AnswerScreen1
+  - AnswerScreen2
   layers:
   - Default
   - TransparentFX
