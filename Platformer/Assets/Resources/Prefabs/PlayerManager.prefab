@@ -9,9 +9,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 413872}
   - 114: {fileID: 11423468}
-  - 114: {fileID: 11403322}
-  - 114: {fileID: 11402906}
-  - 114: {fileID: 11482170}
+  - 114: {fileID: 11477140}
+  - 114: {fileID: 11419338}
   m_Layer: 0
   m_Name: PlayerManager
   m_TagString: PlayerManager
@@ -32,7 +31,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &11402906
+--- !u!114 &11419338
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -40,20 +39,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 146656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8fe85033709aaa44b8e337176ae19b25, type: 3}
+  m_Script: {fileID: 11500000, guid: d9b6d8fc04a0cec4b90ff6fae7b3bfb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11403322
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 146656}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3cd634bd391863d4f9ff5e6edfdd634a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  allMaxx_countTime:
+  - 12
+  - 15
+  - 16
 --- !u!114 &11423468
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -65,7 +57,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51851564d0fad9b479e59f9b7b7c895c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &11482170
+--- !u!114 &11477140
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -73,7 +65,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 146656}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72c81b25f20ccb0408bd8a6cd2edcdc1, type: 3}
+  m_Script: {fileID: 11500000, guid: e941c0eae5af1fc4c8a310dc8df85137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &100100000

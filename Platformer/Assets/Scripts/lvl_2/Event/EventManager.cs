@@ -13,6 +13,12 @@ public class EventManager : MonoBehaviour {
         InputAggregator.OnChangeLvL += InputAggregator_OnChangeLvL1;
         InputAggregator.OnStartDialog += InputAggregator_OnStartDialog;
         InputAggregator.OnEndDialog += InputAggregator_OnEndDialog;
+        InputAggregator.OnTimeOver += InputAggregator_OnTimeOver;
+    }
+
+    private void InputAggregator_OnTimeOver()
+    {
+        scene_controller.LoadLvl(SceneController.GamePosition.DIE_MENU);
     }
 
     private void InputAggregator_OnChangeLvL1(SceneController.GamePosition gp)

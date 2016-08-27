@@ -8,6 +8,7 @@ public class InputAggregator : MonoBehaviour {
     public static event MethodContainerForLvlChanger OnChangeLvL;
     public static event MethodContainer OnStartDialog;
     public static event MethodContainer OnEndDialog;
+    public static event MethodContainer OnTimeOver;
 
 
     public static void CallOnStartDialog() {
@@ -19,5 +20,8 @@ public class InputAggregator : MonoBehaviour {
 
     public static void CallOnChangeLvL(SceneController.GamePosition gp) {
         OnChangeLvL(gp);
+    }
+    public static void CallOnTimeOver() {
+        OnTimeOver();
     }
 }

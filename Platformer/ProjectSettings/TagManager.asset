@@ -14,6 +14,7 @@ TagManager:
   - NPCScreen
   - AnswerScreen1
   - AnswerScreen2
+  - CountingText
   layers:
   - Default
   - TransparentFX
